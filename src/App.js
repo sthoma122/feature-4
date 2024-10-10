@@ -26,6 +26,8 @@ kickoff.save()
 });
 
 
+const k_attempt = kickoff.get("attempt");
+
 function App() {
   return (
     <div className="App">
@@ -41,6 +43,9 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+
+          {k_attempt}
+
         </a>
       </header>
     </div>
