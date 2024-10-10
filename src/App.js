@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-import parse from 'parse';
+import Parse from "parse";
 import * as ENV from "./environments.js"
 
 // initializing 
-parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY,);
-parse.serverURL(ENV.SERVER_URL);
+Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY,);
+Parse.serverURL(ENV.SERVER_URL);
 
 function App() {
   return (
