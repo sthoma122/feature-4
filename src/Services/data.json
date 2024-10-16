@@ -1,0 +1,41 @@
+{
+  "people": [
+    {
+      "name": "Example Name",
+      "title": "Example Title",
+      "notes": "notes go here"
+    },
+
+    {
+      "name": "Solomon Thomas",
+      "title": "Part B",
+      "notes": "notes go here"
+    },
+
+    {
+      "name": "Jonathan DeMarco",
+      "title": "Part A",
+      "notes": "notes go here"
+    }
+  ],
+
+  "locations": [
+    {
+      "name": "Example location",
+      "rating": "Example Rating",
+      "notes": "notes go here"
+    },
+
+    {
+      "name": "Solomon Thomas",
+      "rating": "Part B",
+      "notes": "notes go here"
+    },
+
+    {
+      "name": "Jonathan DeMarco",
+      "rating": "Part A",
+      "notes": "notes go here"
+    }
+  ]
+}
