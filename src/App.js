@@ -9,7 +9,8 @@ import * as ENV from "./environments.js"
 
 // change this so that it is inside components
 // set up feature 3
-import Main from "./Main/Main.js"
+// import Main from "./Components/Main/Main.js"
+import Components from './Components/Components.js';
 
 // initializing 
 Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
@@ -21,7 +22,8 @@ Parse.serverURL = ENV.SERVER_URL;
 function App() {
   return (
     <div className="App">
-      <Main/>
+      {/* <Main/> */}
+      <Components />
     </div>
   );
 }

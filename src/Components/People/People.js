@@ -8,7 +8,7 @@ import { useNavigate} from "react-router-dom";
 // <Routes> looks through all its child routes to find the best match and renders that branch of the UI.
 // <Route> A route is a conditionally shown component that allows you to map your app’s location to different React components
 
-export default function CreatePage() {
+export default function People() {
     const history = useNavigate();
 
     // const buttonHandler = () => {
@@ -19,10 +19,8 @@ export default function CreatePage() {
         <section>
             <div class="DisplayItems">
                 <div class="leftSide">
-                    <p>LEFT</p>
                 </div>
                 <div class="rightSide">
-                    <p>RIGHT</p>
                 </div>
             </div>
 
