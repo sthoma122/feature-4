@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// the routing similar to the class example looks like its already implemented by npm/whatever
+
+{/* <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script> */}
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

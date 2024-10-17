@@ -3,6 +3,8 @@ import { getLocations, getPeople } from "../Services/Data.js";
 import MainList from "./People.js";
 import LocationList from "./Location.js";
 
+import Components from "../Components/Components.js";
+
 // Stateful parent component
 const Main = () => {
   const [users, setUsers] = useState([]);
@@ -127,6 +129,10 @@ const Main = () => {
 
       {/* <!-- Add checkboxes here --> */}
       {/* <!-- Also display the info from name, rating, notes as a temp --> */}
+
+      {/* this is the routing navigation */}
+      <Components />
+
     </div>
   );
 };

@@ -1,9 +1,13 @@
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
+import './styles.css';
 
 import Parse from "parse";
 import * as ENV from "./environments.js"
 
+
+// change this so that it is inside components
 // set up feature 3
 import Main from "./Main/Main.js"
 
@@ -11,27 +15,9 @@ import Main from "./Main/Main.js"
 Parse.initialize(ENV.APPLICATION_ID, ENV.JAVASCRIPT_KEY);
 Parse.serverURL = ENV.SERVER_URL;
 
-// // this is my try for the feature 4 kickoff
-// const Kickoff = Parse.Object.extend("Kickoff");
-// const kickoff = new Kickoff();
 
-// kickoff.set("attempt", 4444);
-
-// kickoff.save()
-// .then((kickoff) => {
-//   // Execute any logic that should take place after the object is saved.
-//   alert('New object created with objectId: ' + kickoff.id);
-// }, (error) => {
-//   // Execute any logic that should take place if the save fails.
-//   // error is a Parse.Error with an error code and message.
-//   alert('Failed to create new object, with error code: ' + error.message);
-// });
-
-
-// const k_attempt = kickoff.get("attempt");
-
-// {k_attempt}
-
+// replace main with components
+// dont route in app.js
 function App() {
   return (
     <div className="App">
