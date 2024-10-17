@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getLocations, getPeople } from "../Services/Data.js";
+import { getLocations, getPeople } from "../../Services/Data.js";
 import MainList from "./People.js";
 import LocationList from "./Location.js";
 
-import Components from "../Components/Components.js";
+// import Components from "../Components.js";
 
 // Stateful parent component
 const Main = () => {
@@ -131,7 +131,7 @@ const Main = () => {
       {/* <!-- Also display the info from name, rating, notes as a temp --> */}
 
       {/* this is the routing navigation */}
-      <Components />
+      {/* <Components /> */}
 
     </div>
   );

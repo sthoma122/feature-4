@@ -8,7 +8,7 @@ import { useNavigate} from "react-router-dom";
 // <Routes> looks through all its child routes to find the best match and renders that branch of the UI.
 // <Route> A route is a conditionally shown component that allows you to map your app’s location to different React components
 
-export default function RemovePage() {
+export default function Location() {
     const history = useNavigate();
 
     // const buttonHandler = () => {
