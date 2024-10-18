@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPeople, createPerson } from "../../Services/People/PeopleService";
+import { getPeople, createPerson, deletePerson } from "../../Services/People/PeopleService";
 import MainList from "./MainList";
 import "./People.css"; // Import the CSS file for styling
 
@@ -29,6 +29,16 @@ const Main = () => {
     } else {
       alert("Please fill out all fields.");
     }
+  };
+  
+  const handleDelete = (personId) => {
+    deletePerson(personId).then((success) => {
+      if (success) {
+        getPeople().then((updatedNames) => {
+          setNames(updatedNames);
+        });
+      }
+    });
   };
 
   return (
@@ -60,7 +70,7 @@ const Main = () => {
       <div className="divider"></div>
       <div className="right">
         <h3>People List</h3>
-        <MainList names={names} />
+        <MainList names={names} onDelete={handleDelete} />
       </div>
     </div>
   );

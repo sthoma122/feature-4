@@ -32,3 +32,25 @@ export const createPerson = (Name, Title, Notes) => {
     return result;
   });
 };
+
+export const deletePerson = (personId) => {
+  const Person = Parse.Object.extend("People");
+  const query = new Parse.Query(Person);
+
+  return query.get(personId)
+    .then((person) => {
+      return person.destroy()
+        .then(() => {
+          console.log("Person deleted successfully");
+          return true; // Return a success indicator
+        })
+        .catch((error) => {
+          console.log("Error while deleting person:", error);
+          return false; // Return a failure indicator
+        });
+    })
+    .catch((error) => {
+      console.log("Error finding person:", error);
+      return false; // Return a failure indicator
+    });
+};

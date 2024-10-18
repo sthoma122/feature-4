@@ -32,3 +32,25 @@ export const createLocation = (Name, Title, Notes) => {
     return result;
   });
 };
+
+export const deleteLocation = (locationId) => {
+  const Location = Parse.Object.extend("Location");
+  const query = new Parse.Query(Location);
+
+  return query.get(locationId)
+    .then((location) => {
+      return location.destroy()
+        .then(() => {
+          console.log("Person deleted successfully");
+          return true; // Return a success indicator
+        })
+        .catch((error) => {
+          console.log("Error while deleting person:", error);
+          return false; // Return a failure indicator
+        });
+    })
+    .catch((error) => {
+      console.log("Error finding person:", error);
+      return false; // Return a failure indicator
+    });
+};
