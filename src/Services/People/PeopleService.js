@@ -32,3 +32,37 @@ export const createPerson = (Name, Title, Notes) => {
     return result;
   });
 };
+
+export const deletePerson = (personId) => {
+  const Person = Parse.Object.extend("People");
+  const query = new Parse.Query(Person);
+
+  return query.get(personId)
+    .then((person) => {
+      return person.destroy()
+        .then(() => {
+          console.log("Person deleted successfully");
+          return true; // Return a success indicator
+        })
+        .catch((error) => {
+          console.log("Error while deleting person:", error);
+          return false; // Return a failure indicator
+        });
+    })
+    .catch((error) => {
+      console.log("Error finding person:", error);
+      return false; // Return a failure indicator
+    });
+};
+
+export const checkPersonCount = async () => {
+  const query = new Parse.Query("People"); // Ensure class name is correct
+  try {
+    const count = await query.count(); // Get current count of Location objects
+    console.log(`Total People: ${count}`);
+    return count;
+  } catch (error) {
+    console.log("Error counting People (Delete one to continue):", error);
+    return 0; // Return a default count if an error occurs
+  }
+};
