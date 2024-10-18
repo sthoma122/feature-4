@@ -1,13 +1,18 @@
 import React from "react";
 
-const MainList = ({ names }) => {
+const MainList = ({ locations, onDelete }) => {
   return (
     <ul>
-      {names.map((location) => (
+      {locations.map((location) => (
         <li key={location.id}>
-          <strong>Name:</strong> {location.name} <br />
-          <strong>Title:</strong> {location.title} <br />
-          <strong>Notes:</strong> {location.notes}
+          <strong>Location Name:</strong> {location.name} <br />
+          <strong>Address:</strong> {location.title} <br />
+          <strong>Description:</strong> {location.notes} <br />
+          <input
+            type="radio"
+            name="deleteLocation"
+            onClick={() => onDelete(location.id)} // Calls the delete function with location id
+          /> Delete
         </li>
       ))}
     </ul>

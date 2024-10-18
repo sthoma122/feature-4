@@ -4,14 +4,15 @@ import MainList from "./MainList";
 import "./Location.css"; // Import the CSS file for styling
 
 const Main = () => {
-  const [names, setNames] = useState([]);
+  const [locations, setLocations] = useState([]); // Use 'locations' instead of 'names'
   const [newName, setNewName] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [newNotes, setNewNotes] = useState("");
 
+  // Fetch locations when the component mounts
   useEffect(() => {
-    getLocation().then((fetchedNames) => {
-      setNames(fetchedNames);
+    getLocation().then((fetchedLocations) => {
+      setLocations(fetchedLocations); // Set fetched data as 'locations'
     });
   }, []);
 
@@ -40,6 +41,17 @@ const Main = () => {
     }
   };
 
+  // Handle deleting a location by its ID
+  const handleDelete = (locationId) => {
+    deleteLocation(locationId).then((success) => {
+      if (success) {
+        getLocation().then((updatedLocations) => {
+          setLocations(updatedLocations); // Update location list after deleting
+        });
+      }
+    });
+  };
+
   return (
     <div className="container">
       <div className="left">
@@ -49,7 +61,7 @@ const Main = () => {
             type="text"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
-            placeholder="Enter Name"
+            placeholder="Enter Location Name"
           />
           <input
             type="text"
@@ -69,7 +81,7 @@ const Main = () => {
       <div className="divider"></div>
       <div className="right">
         <h3>Location List</h3>
-        <MainList names={names} />
+        <MainList locations={locations} onDelete={handleDelete} /> {/* Pass 'locations' instead of 'names' */}
       </div>
     </div>
   );

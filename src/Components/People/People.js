@@ -38,6 +38,16 @@ const Main = () => {
       alert("You cannot add more than 10 People.");
     }
   };
+  
+  const handleDelete = (personId) => {
+    deletePerson(personId).then((success) => {
+      if (success) {
+        getPeople().then((updatedNames) => {
+          setNames(updatedNames);
+        });
+      }
+    });
+  };
 
   const handleDelete = (personId) => {
     deletePerson(personId).then((success) => {
@@ -78,7 +88,7 @@ const Main = () => {
       <div className="divider"></div>
       <div className="right">
         <h3>People List</h3>
-        <MainList names={names} />
+        <MainList names={names} onDelete={handleDelete} />
       </div>
     </div>
   );
