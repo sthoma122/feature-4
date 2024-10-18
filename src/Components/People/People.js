@@ -49,16 +49,6 @@ const Main = () => {
     });
   };
 
-  const handleDelete = (personId) => {
-    deletePerson(personId).then((success) => {
-      if (success) {
-        getPeople().then((updatedNames) => {
-          setNames(updatedNames);
-        });
-      }
-    });
-  };
-
   return (
     <div className="container">
       <div className="left">
