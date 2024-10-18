@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPeople, createPerson, deletePerson } from "../../Services/People/PeopleService";
+import { getPeople, createPerson, deletePerson, checkPersonCount } from "../../Services/People/PeopleService";
 import MainList from "./MainList";
 import "./People.css"; // Import the CSS file for styling
 
@@ -15,22 +15,40 @@ const Main = () => {
     });
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (newName.trim() && newTitle.trim() && newNotes.trim()) {
-      createPerson(newName, newTitle, newNotes).then((result) => {
-        getPeople().then((updatedNames) => {
-          setNames(updatedNames);
+
+    // Check if there are less than 10 entries
+    const currentCount = await checkPersonCount();
+
+    if (currentCount < 10) {
+      if (newName.trim() && newTitle.trim() && newNotes.trim()) {
+        createPerson(newName, newTitle, newNotes).then(() => {
+          getPeople().then((updatedPeople) => {
+            setNames(updatedPeople); // Update location list after adding a new one
+          });
+          setNewName("");
+          setNewTitle("");
+          setNewNotes("");
         });
-        setNewName("");
-        setNewTitle("");
-        setNewNotes("");
-      });
+      } else {
+        alert("Please fill out all fields.");
+      }
     } else {
-      alert("Please fill out all fields.");
+      alert("You cannot add more than 10 People.");
     }
   };
   
+  const handleDelete = (personId) => {
+    deletePerson(personId).then((success) => {
+      if (success) {
+        getPeople().then((updatedNames) => {
+          setNames(updatedNames);
+        });
+      }
+    });
+  };
+
   const handleDelete = (personId) => {
     deletePerson(personId).then((success) => {
       if (success) {

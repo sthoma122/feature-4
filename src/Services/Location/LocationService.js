@@ -54,3 +54,15 @@ export const deleteLocation = (locationId) => {
       return false; // Return a failure indicator
     });
 };
+
+export const checkLocationCount = async () => {
+  const query = new Parse.Query("Location"); // Ensure class name is correct
+  try {
+    const count = await query.count(); // Get current count of Location objects
+    console.log(`Total Locations: ${count}`);
+    return count;
+  } catch (error) {
+    console.log("Error counting locations (Delete one to continue):", error);
+    return 0; // Return a default count if an error occurs
+  }
+};

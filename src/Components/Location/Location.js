@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getLocation, createLocation, deleteLocation } from "../../Services/Location/LocationService";
+import { getLocation, createLocation, deleteLocation, checkLocationCount } from "../../Services/Location/LocationService";
 import MainList from "./MainList";
 import "./Location.css"; // Import the CSS file for styling
 
@@ -17,19 +17,27 @@ const Main = () => {
   }, []);
 
   // Handle form submission to create a new location
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (newName.trim() && newTitle.trim() && newNotes.trim()) {
-      createLocation(newName, newTitle, newNotes).then(() => {
-        getLocation().then((updatedLocations) => {
-          setLocations(updatedLocations); // Update location list after adding a new one
+
+    // Check if there are less than 10 entries
+    const currentCount = await checkLocationCount();
+
+    if (currentCount < 10) {
+      if (newName.trim() && newTitle.trim() && newNotes.trim()) {
+        createLocation(newName, newTitle, newNotes).then(() => {
+          getLocation().then((updatedLocations) => {
+            setLocations(updatedLocations); // Update location list after adding a new one
+          });
+          setNewName("");
+          setNewTitle("");
+          setNewNotes("");
         });
-        setNewName("");
-        setNewTitle("");
-        setNewNotes("");
-      });
+      } else {
+        alert("Please fill out all fields.");
+      }
     } else {
-      alert("Please fill out all fields.");
+      alert("You cannot add more than 10 locations.");
     }
   };
 

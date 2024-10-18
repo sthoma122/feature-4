@@ -54,3 +54,15 @@ export const deletePerson = (personId) => {
       return false; // Return a failure indicator
     });
 };
+
+export const checkPersonCount = async () => {
+  const query = new Parse.Query("People"); // Ensure class name is correct
+  try {
+    const count = await query.count(); // Get current count of Location objects
+    console.log(`Total People: ${count}`);
+    return count;
+  } catch (error) {
+    console.log("Error counting People (Delete one to continue):", error);
+    return 0; // Return a default count if an error occurs
+  }
+};
