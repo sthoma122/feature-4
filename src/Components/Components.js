@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Location from "./Location/Location.js";
 import People from "./People/People.js";
 import Navigate from "./Navigate/Navigate";
-import "./Components.css";
 
 export default function Components() {
     return (
@@ -14,6 +13,7 @@ export default function Components() {
                 </Routes>
                 
                 {/* Always show Navigate at the bottom */}
+                <br />
                 <Navigate />
             </div>
         </Router>
