@@ -9,10 +9,10 @@ const Navigate = () => (
     <footer>
         <nav>
             <div>
-                <Link to="/people">People</Link>
+                <Link to="/">People</Link>
             </div>
             <div>
-                <Link to="/location">Locations</Link>
+                <Link to="/Location">Location</Link>
             </div>
         </nav>
     </footer>
