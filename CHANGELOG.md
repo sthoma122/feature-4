@@ -24,7 +24,6 @@ Details: Added validation to ensure no more than 10 entries can be added in eith
 ## [0.2.0] - 2024-10-18
 
 ### Added
-- added parsing for locations and people
 - added css for navigation
 - added the ability to delete from people and location classes
 - added a limit to the number of items the user can create in each class
