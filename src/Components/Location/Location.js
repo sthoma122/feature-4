@@ -3,6 +3,9 @@ import { getLocation, createLocation, deleteLocation, checkLocationCount } from 
 import MainList from "./MainList";
 import "./Location.css"; // Import the CSS file for styling
 
+import ReNav from "../Navigate/Navigate";
+
+
 const Main = () => {
   const [locations, setLocations] = useState([]); // Use 'locations' instead of 'names'
   const [newName, setNewName] = useState("");
@@ -53,6 +56,7 @@ const Main = () => {
   };
 
   return (
+    <div>
     <div className="container">
       <div className="left">
         <h3>Submit New Location</h3>
@@ -83,6 +87,10 @@ const Main = () => {
         <h3>Location List</h3>
         <MainList locations={locations} onDelete={handleDelete} /> {/* Pass 'locations' instead of 'names' */}
       </div>
+    </div>
+    <div>
+      <ReNav />
+    </div>
     </div>
   );
 };

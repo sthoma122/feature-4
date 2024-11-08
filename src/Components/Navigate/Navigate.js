@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // make this look better
 import "./Navigate.css"
 
-const Navigate = () => (
+const ReNav = () => (
     <footer>
         <nav class="navPL">
             <div class="child">
@@ -16,4 +16,4 @@ const Navigate = () => (
     </footer>
 );
 
-export default Navigate;
+export default ReNav;

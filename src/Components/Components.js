@@ -1,7 +1,7 @@
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Location from "./Location/Location.js";
 import People from "./People/People.js";
-// import Navigate from "./Navigate/Navigate";
+// import ReNav from "./Navigate/Navigate";
 
 // export default function Components() {
 //     return (
@@ -43,7 +43,11 @@ export default function Components() {
         <Route
           path="/"
         //   element={<ProtectedRoute path="/" element={MainList} />}
-        element={<ProtectedRoute path="/" element={People} />}
+        element={<ProtectedRoute path="/people" element={People} />}
+        />
+        <Route
+          path="/location"
+        element={<ProtectedRoute path="/location" element={Location} />}
         />
         <Route path="*" element={<Navigate to="/auth" replace />} />
       </Routes>
