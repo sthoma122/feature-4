@@ -4,11 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { checkUser } from "./AuthService";
 import "./auth.css";
 
-// Right now the auth things are coppied from feature 5 kickoff solution
-// I need to make it sutible for our needs and with all the necessary checks
-// I'm starting by making sure I understand how it works
-
-
 const AuthModule = () => {
     const navigate = useNavigate();
 

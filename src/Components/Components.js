@@ -1,24 +1,5 @@
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Location from "./Location/Location.js";
 import People from "./People/People.js";
-// import ReNav from "./Navigate/Navigate";
-
-// export default function Components() {
-//     return (
-//         <Router>
-//             <div>
-//                 <Routes>
-//                     <Route path="/" element={<People />} />
-//                     <Route path="/Location" element={<Location />} />
-//                 </Routes>
-                
-//                 {/* Always show Navigate at the bottom */}
-//                 <br />
-//                 <Navigate />
-//             </div>
-//         </Router>
-//     );
-// }
 
 import React from "react";
 import {
@@ -27,11 +8,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import AuthModule from "./Auth/Auth.js";
-import AuthRegister from "./Auth/AuthRegister";
-import AuthLogin from "./Auth/AuthLogin";
+import AuthModule from "../Services/Auth/Auth.js";
+import AuthRegister from "../Services/Auth/AuthRegister";
+import AuthLogin from "../Services/Auth/AuthLogin";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.js";
-// import MainList from "./Main/MainList.js";
 
 export default function Components() {
   return (
@@ -42,7 +22,6 @@ export default function Components() {
         <Route path="/auth/login" element={<AuthLogin />} />
         <Route
           path="/"
-        //   element={<ProtectedRoute path="/" element={MainList} />}
         element={<ProtectedRoute path="/people" element={People} />}
         />
         <Route
