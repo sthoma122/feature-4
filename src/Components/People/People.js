@@ -3,6 +3,8 @@ import { getPeople, createPerson, deletePerson, checkPersonCount } from "../../S
 import MainList from "./MainList";
 import "./People.css"; // Import the CSS file for styling
 
+import ReNav from "../Navigate/Navigate";
+
 const Main = () => {
   const [names, setNames] = useState([]);
   const [newName, setNewName] = useState("");
@@ -50,6 +52,7 @@ const Main = () => {
   };
 
   return (
+    <div>
     <div className="container">
       <div className="left">
         <h3>Submit New Person</h3>
@@ -80,6 +83,8 @@ const Main = () => {
         <h3>People List</h3>
         <MainList names={names} onDelete={handleDelete} />
       </div>
+    </div>
+    <ReNav />
     </div>
   );
 };
