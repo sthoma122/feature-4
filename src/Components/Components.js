@@ -1,5 +1,4 @@
-import Location from "./Location/Location.js";
-import People from "./People/People.js";
+import Rating from "./Rating/Rating.js"
 
 import React from "react";
 import {
@@ -22,11 +21,7 @@ export default function Components() {
         <Route path="/auth/login" element={<AuthLogin />} />
         <Route
           path="/"
-        element={<ProtectedRoute path="/people" element={People} />}
-        />
-        <Route
-          path="/location"
-        element={<ProtectedRoute path="/location" element={Location} />}
+        element={<ProtectedRoute path="/rating" element={Rating} />}
         />
         <Route path="*" element={<Navigate to="/auth" replace />} />
       </Routes>
