@@ -7,7 +7,6 @@ import React from "react";
 import { PieChart } from '@mui/x-charts/PieChart';
 import Parse from 'parse';
 import { useParseQuery } from '@parse/react';
-import { Label, Title } from "@mui/icons-material";
 
 const Rating = () => {
   
@@ -65,7 +64,7 @@ const Rating = () => {
               series={[{data: data2}]}
               height={290}
               xAxis={[{ data: data1, scaleType: 'band' }]}
-              // color map ...
+              // color map as an option to add later
               margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
             />
         </div>

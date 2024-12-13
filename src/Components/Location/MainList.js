@@ -3,10 +3,9 @@ import Rating from '@mui/material/Rating';
 
 const MainList = ({ locations, onDelete, onRatingUpdate }) => {
 
+  // updating the stars, side effect that all are updated ...
   const [value, setValue] = useState(5);
-  // Create ref 
   const valueRef = useRef();
-  // Initialize ref
   valueRef.current = value;
 
   return (
@@ -22,7 +21,7 @@ const MainList = ({ locations, onDelete, onRatingUpdate }) => {
                 onChange={(e, newValue) => {
                   setValue(newValue);
                   console.log(valueRef.current);
-                  onRatingUpdate(location.id, Number(e.target.value));
+                  onRatingUpdate(location.id, Number(e.target.value)); // updating the location ratings
                 }}
             /> <br />
           <input
