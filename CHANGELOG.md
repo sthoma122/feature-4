@@ -1,6 +1,21 @@
 #Change Log
 
-This file documents notable changes to Feature 4/5.
+This file documents notable changes to Feature 4/5/6.
+
+## [0.4.0] - 2024-12-14
+
+### Added
+ - Ratings page
+ - css for ratings
+ - LiveQuery implementation
+ - Material UI elements
+
+### Changed
+ - removed people related things
+ - live query now used to update things
+
+### Fixed
+ - warnings
 
 ## [0.3.0] - 2024-11-08
 
