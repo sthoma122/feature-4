@@ -1,6 +1,6 @@
-import Parse, { serverURL } from "parse";
+// import Parse, { serverURL } from "parse";
+import Parse from "parse";
 import * as ENV from "./environments.js"
-
 
 import Components from './Components/Components.js';
 

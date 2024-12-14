@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { getLocation, createLocation, deleteLocation, checkLocationCount, updateLocation } from "../../Services/Location/LocationService";
 import MainList from "./MainList";
 import "./Location.css"; // Import the CSS file for styling
-
-// import ReNav from "../Navigate/Navigate";
 
 import Parse from 'parse';
 import Rating from '@mui/material/Rating';
@@ -15,19 +13,19 @@ const Main = () => {
   const [newNotes, setNewNotes] = useState("");
   const [newRating, setNewRating] = useState("");
 
+  // update the stars
   const [value, setValue] = useState(5);
-  // Create ref 
   const valueRef = useRef();
-  // Initialize ref
   valueRef.current = value;
 
+  // this is kept for reference later as what we used to do:
   // Fetch locations when the component mounts
-  useEffect(() => {
-    getLocation().then((fetchedLocations) => {
-      console.log(locations);
-      // setLocations(fetchedLocations); // Set fetched data as 'locations'
-    });
-  }, []);
+  // useEffect(() => {
+  //   getLocation()
+  //   .then((fetchedLocations) => {
+  //     setLocations(fetchedLocations); // Set fetched data as 'locations'
+  //   });
+  // }, []);
 
 
   Parse.enableLocalDatastore();
@@ -43,7 +41,7 @@ const Main = () => {
     }
   );
 
-  // useParseQuery is a god send
+  // useParseQuery can have lots of things returned, but results is all we need right now
   // mapping the location data for the list item
   const locations = results ? results.map(item => ({
     id: item.id,
@@ -66,7 +64,8 @@ const Main = () => {
       if (newName.trim() && newTitle.trim() && newNotes.trim()) {
         createLocation(newName, newTitle, newNotes, newRating).then(() => {
           getLocation().then((updatedLocations) => {
-            console.log(locations);
+            console.log(updatedLocations);
+          // we no longer need this because updating the locations is handled by the live query/useParseQuery
           //   setLocations(updatedLocations); // Update location list after adding a new one
           });
           setNewName("");
@@ -87,8 +86,7 @@ const Main = () => {
     deleteLocation(locationId).then((success) => {
       if (success) {
         getLocation().then((updatedLocations) => {
-          console.log(locations);
-          // setLocations(updatedLocations); // Update location list after deleting
+          console.log(updatedLocations);
         });
       }
     });
